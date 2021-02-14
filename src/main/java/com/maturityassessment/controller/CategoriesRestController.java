@@ -17,7 +17,6 @@ import com.maturityassessment.service.CategoriesService;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/categories")
 public class CategoriesRestController {
-
 	@Autowired
 	private CategoriesService categoriesService;
 
