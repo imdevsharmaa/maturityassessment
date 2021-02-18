@@ -3,12 +3,12 @@ package com.maturityassessment.beans;
 public class OptionsBean {
 
 	private String option;
-	private String weightage;
+	private Integer weightage;
 
 	public OptionsBean() {
 	}
 
-	public OptionsBean(String option, String weightage) {
+	public OptionsBean(String option, Integer weightage) {
 		this.option = option;
 		this.weightage = weightage;
 	}
@@ -21,11 +21,11 @@ public class OptionsBean {
 		this.option = option;
 	}
 
-	public String getWeightage() {
+	public Integer getWeightage() {
 		return weightage;
 	}
 
-	public void setWeightage(String weightage) {
+	public void setWeightage(Integer weightage) {
 		this.weightage = weightage;
 	}
 

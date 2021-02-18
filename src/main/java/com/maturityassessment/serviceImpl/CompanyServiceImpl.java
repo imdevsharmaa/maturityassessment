@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.maturityassessment.beans.CompanyBean;
 import com.maturityassessment.model.Company;
+import com.maturityassessment.model.CompanySize;
+import com.maturityassessment.model.Industry;
 import com.maturityassessment.repository.CompanyRepository;
 import com.maturityassessment.service.CompanyService;
 
@@ -22,13 +24,19 @@ public class CompanyServiceImpl implements CompanyService {
 		
 		Company company = new Company();
 		company.setActiveFlag(Boolean.TRUE);
-		company.setCompanyName("Test Company");
-		company.setEmail("test@test.com");
-		company.setPhone("9494767991");
-		company.setFirstName("Test F");
-		company.setLastName("Test L");
-		company.setPrivacyPolicy(Boolean.TRUE);
-		company.setScheduleCall(Boolean.TRUE);
+		company.setCompanyName(companyBean.getCompanyName());
+		company.setEmail(companyBean.getEmail());
+		company.setPhone(companyBean.getPhone());
+		company.setFirstName(companyBean.getFirstName());
+		company.setLastName(companyBean.getLastName());
+		company.setPrivacyPolicy(companyBean.getPrivacyPolicy());
+		company.setScheduleCall(companyBean.getScheduler());
+		CompanySize addCompanySize=new CompanySize();
+		addCompanySize.setCompanySizeId(companyBean.getSizeId());
+		company.setCompanySize(addCompanySize);
+		Industry addIndustry=new Industry();
+		addIndustry.setIndustryId(companyBean.getIndustryId());
+		company.setIndustry(addIndustry);
 		
 		return companyRepository.save(company).getCompanyId();
 	}
@@ -96,6 +104,15 @@ public class CompanyServiceImpl implements CompanyService {
 		Optional<Company> companyOptional = companyRepository.findById(companyId);
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean findByCompanyEmail(String compnayEmail) {
+		Company companyDetail=companyRepository.findByEmail(compnayEmail);
+		if(companyDetail!=null) {
+			return true;
+		}
+		return false;
 	}
 
 	

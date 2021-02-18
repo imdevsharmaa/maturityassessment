@@ -64,8 +64,14 @@ public class CompanyRestController {
 	public ResponseEntity<?> saveCompanyData(@RequestBody CompanyBean companyBean) {
 		ResponseEntity<String> response = null;
 		try {
-			response = new ResponseEntity<>("Company Details added " + companyService.saveCompanyDetails(companyBean),
-					HttpStatus.OK);
+			boolean companyEmail= companyService.findByCompanyEmail(companyBean.getEmail());
+			if(companyEmail) {
+				response = new ResponseEntity<>("Email id should be unique : "+ companyBean.getEmail(),
+						HttpStatus.OK);
+			}else {
+				response = new ResponseEntity<>("Company Details added " + companyService.saveCompanyDetails(companyBean),
+						HttpStatus.OK);
+			}
 		} catch (Exception e) {
 			response = new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 

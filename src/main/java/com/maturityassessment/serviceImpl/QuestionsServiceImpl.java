@@ -79,6 +79,7 @@ public class QuestionsServiceImpl implements QuestionsService {
 			List<Options> ops = optionsRepository.findByQuestions(q);
 			questionBean = new QuestionBean();
 			questionBean.setNoOfOptions(q.getNoOfOptions());
+			questionBean.setQuestionId(q.getQuestionsId());
 			questionBean.setQuestion(q.getQuestion());
 			List<OptionsBean> list = new ArrayList<>();
 			for (Options options : ops) {

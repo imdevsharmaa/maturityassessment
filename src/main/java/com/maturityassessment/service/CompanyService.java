@@ -17,6 +17,8 @@ public interface CompanyService {
 	List<Company> getAllCompanyDetails();
 
 	List<Company> findByCompanyName(String companyName);
+	
+	boolean findByCompanyEmail(String compnayEmail);
 
 	String deleteAllCompanies();
 

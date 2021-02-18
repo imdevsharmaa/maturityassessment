@@ -32,14 +32,14 @@ public class Options implements Serializable {
 	@Column(name = "Q_OPTION")
 	private String option;
 	@Column(name = "WEIGHTAGE")
-	private String weightage;
+	private Integer weightage;
 	@Column(name = "ACTIVE_FLAG")
 	private Boolean activeFlag;
 
 	public Options() {
 	}
 
-	public Options(Integer optionsId, Questions questions, String option, String weightage, Boolean activeFlag) {
+	public Options(Integer optionsId, Questions questions, String option, Integer weightage, Boolean activeFlag) {
 		this.optionsId = optionsId;
 		this.questions = questions;
 		this.option = option;
@@ -71,11 +71,11 @@ public class Options implements Serializable {
 		this.option = option;
 	}
 
-	public String getWeightage() {
+	public Integer getWeightage() {
 		return weightage;
 	}
 
-	public void setWeightage(String weightage) {
+	public void setWeightage(Integer weightage) {
 		this.weightage = weightage;
 	}
 

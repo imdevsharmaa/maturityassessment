@@ -5,6 +5,7 @@ import java.util.List;
 public class QuestionBean {
 
 	private Integer noOfOptions;
+	private Integer questionId;
 	private String question;
 	private List<OptionsBean> optionsBean;
 	private Integer categoriesId;
@@ -12,8 +13,11 @@ public class QuestionBean {
 	public QuestionBean() {
 	}
 
-	public QuestionBean(Integer noOfOptions, String question, List<OptionsBean> optionsBean, Integer categoriesId) {
+	public QuestionBean(Integer noOfOptions, Integer questionId, String question, List<OptionsBean> optionsBean,
+			Integer categoriesId) {
+		super();
 		this.noOfOptions = noOfOptions;
+		this.questionId = questionId;
 		this.question = question;
 		this.optionsBean = optionsBean;
 		this.categoriesId = categoriesId;
@@ -49,6 +53,14 @@ public class QuestionBean {
 
 	public void setCategoriesId(Integer categoriesId) {
 		this.categoriesId = categoriesId;
+	}
+
+	public Integer getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(Integer questionId) {
+		this.questionId = questionId;
 	}
 
 }

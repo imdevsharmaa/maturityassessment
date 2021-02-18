@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,10 +28,10 @@ public class Company implements Serializable {
 	@Column(name = "COMPANY_ID")
 	private Integer companyId;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY )
 	@JoinColumn(name = "INDUSTRY_ID")
 	private Industry industry;
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY )
 	@JoinColumn(name = "COMPANY_SIZE_ID")
 	private CompanySize companySize;
 
