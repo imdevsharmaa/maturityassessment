@@ -28,6 +28,10 @@ public interface CompanyService {
 
 	CompanyBean getCompanyBeanByCompanyId(Integer companyId);
 
+	CompanyBean getCompanyDetailsByEmail(String email);
+
+	List<CompanyBean> getCompanyDetails();
+
 	//List<Integer> getCompanySizeDetails();
 
 }
